@@ -6,7 +6,7 @@ const Form = ({getFilter}) => {
     const formHandler = (e) => {
         const eventData = {...form, [e.target.name]: e.target.value}
         setForm({...form, ...eventData})
-        getFilter(eventData)
+        // getFilter(eventData)
     }
     return (
         <div>
@@ -15,6 +15,7 @@ const Form = ({getFilter}) => {
                 <label>Username: <input type="text" name={'username'} value={form.username} onChange={formHandler}/></label>
                 <label>Email: <input type="text" name={'email'} value={form.email} onChange={formHandler}/></label>
             </form>
+            {<button onClick={() => getFilter(form)}>Find</button>}
         </div>
     );
 };

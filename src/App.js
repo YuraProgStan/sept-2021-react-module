@@ -31,7 +31,7 @@ const App = () => {
     return (
         <div>
             <Form getFilter={getFilter}/>
-            {<button onChange={() => getFilter}>Find</button>}
+
             {getFilter &&  <Users users={filteredUsers}/>}
         </div>
     );
