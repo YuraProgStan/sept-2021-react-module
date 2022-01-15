@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 5px;
+}
+.wrap{
+    display: flex;
+
+
+}
