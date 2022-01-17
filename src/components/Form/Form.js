@@ -7,7 +7,9 @@ register, handleSubmit, watch, formState:{errors}
 
     } = useForm();
     const submit = (data) => {
-        carSevice.create(car).then
+        carSevice.create(car).then(value => console.log(value)).catch(error => {
+            console.log(error.response);
+        })
     }
     // watch(event => console.log(event));
     return (
