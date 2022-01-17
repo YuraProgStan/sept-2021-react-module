@@ -1,11 +1,14 @@
 import './App.css';
+import Cars from './components/Cars/Cars';
+import Form from './components/Form/Form';
 
 const App = () => {
-  return (
-    <div className="App">
-
-    </div>
-  );
+    return (
+        <>
+            <Form/>
+            <Cars/>
+        </>
+    );
 }
 
 export default App;
