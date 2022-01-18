@@ -17,7 +17,7 @@ register, handleSubmit, watch, formState:{errors}
     const submit = async (car) => {
         try{
             const newCar = await  carService.create(car);
-            console.log(newCar);
+            console.log(newCar)
         }
         catch (error) {
             setFormError(error.response.data);
