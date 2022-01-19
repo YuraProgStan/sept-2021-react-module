@@ -13,10 +13,10 @@ const Cars = ({trigger}) => {
 
     useEffect(() => {
         carService.getAll().then(value => setCars([...value]))
-    }, [trigger]);
-    useEffect(() => {
-        carService.getAll().then(value => setCars([...value]))
-    },[cars]);
+    }, [trigger, cars]);
+    // useEffect(() => {
+    //     carService.getAll().then(value => setCars([...value]))
+    // },[cars]);
 
     return (
         <div>
