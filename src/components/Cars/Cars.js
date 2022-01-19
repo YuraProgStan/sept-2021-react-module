@@ -7,12 +7,16 @@ const Cars = ({trigger}) => {
     const [cars, setCars] = useState([]);
     const delById =  (id) => {
         carService.deleteById(id);
+        cars.filter(car => car.id !== id)
     }
 
 
     useEffect(() => {
         carService.getAll().then(value => setCars([...value]))
-    }, [trigger, delById]);
+    }, [trigger]);
+    useEffect(() => {
+        carService.getAll().then(value => setCars([...value]))
+    },[cars]);
 
     return (
         <div>
