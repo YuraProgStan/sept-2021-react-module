@@ -1,12 +1,17 @@
-import './App.css';
-import Cars from './components/Cars/Cars';
-import Form from './components/Form/Form';
+import Form from "./components/Form/Form";
+import Cars from "./components/Cars/Cars";
+import {useState} from "react";
 
-const App = () => {
+function App() {
+    const [car, setCar] = useState(null);
+
+    // const update = data =>{
+    //     setCar(data)
+    // }
     return (
         <>
-            <Form/>
-            <Cars/>
+            <Form update={setCar}/>
+            <Cars trigger={car}/>
         </>
     );
 }
