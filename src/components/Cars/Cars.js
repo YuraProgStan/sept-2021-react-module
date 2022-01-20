@@ -13,14 +13,14 @@ const Cars = ({trigger}) => {
 
     useEffect(() => {
         carService.getAll().then(value => setCars([...value]))
-    }, [trigger, cars]);
+    }, [trigger]);
     // useEffect(() => {
     //     carService.getAll().then(value => setCars([...value]))
     // },[cars]);
 
     return (
         <div>
-            {cars.map(car => <Car key={car.id} car={car} delById={delById} />)}
+            {cars.map(car => <Car key={car.id} car={car} delById={delById}  />)}
         </div>
     );
 };
