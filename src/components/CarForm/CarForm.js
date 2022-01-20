@@ -5,7 +5,7 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import {carService} from "../../services/carService";
 import {CarValidator} from "../../validators/carValidator";
 
-const CarForm = ({car}) => {
+const CarForm = ({car, updateCarId}) => {
     const {id, model, price, year} = car;
 
     const [formError, setFormError] = useState({});
@@ -18,6 +18,7 @@ const CarForm = ({car}) => {
     const submit = async ( car) => {
         try {
            await carService.updateById(id, car);
+           await updateCarId('false');
 
         }catch (error){
             setFormError(error.response.data)
