@@ -4,6 +4,8 @@ import {useState} from "react";
 
 function App() {
     const [car, setCar] = useState(null);
+    const [delCar, setDelCar] = useState(false);
+
 
 
     // const update = data =>{
@@ -12,7 +14,7 @@ function App() {
     return (
         <>
             <Form update={setCar}/>
-            <Cars trigger={car} />
+            <Cars trigger={car} trigger2 = {delCar} updateDelCar = {setDelCar}   />
         </>
     );
 }
