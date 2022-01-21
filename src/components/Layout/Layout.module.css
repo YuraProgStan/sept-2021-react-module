@@ -1,0 +1,22 @@
+.header {
+    background-color: darkcyan;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+
+}
+.header a{
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+}
+.header a[class='active']{
+    color:darkorange;
+    text-decoration: underline;
+}
+.main {
+    padding: 20px;
+
+}
