@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-const Post = ({post: {id, title}}) => {
+const Post = ({post}) => {
+    const {id, title} = post;
     return (
         <div>
-            <Link to={id.toString()}>{title}</Link>
+            <Link to={id.toString()} state={post}>{title}</Link>
         </div>
     );
 };
