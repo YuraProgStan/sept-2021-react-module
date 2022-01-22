@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {Link, Outlet, useLocation, useParams} from "react-router-dom";
 import {usersService} from "../../services/users.service";
 
 const UserDetails = () => {
@@ -7,27 +7,37 @@ const UserDetails = () => {
     const [user, setUser] = useState(null);
     const {state} = useLocation();
     useEffect(() => {
-        if(state){
-            setUser(state);
-            return;
-        }
-        usersService.getById(id).then(value => setUser({...value}))
+            if (state) {
+                setUser(state);
+                return;
+            }
+            usersService.getById(id).then(value => setUser({...value}))
         },
         [id]
     )
     return (
-        <div>
-            UserDetails
-            {user && (
+        <>
+            <h3>UserDetails</h3>
+
+            {user &&
+            <>
                 <div>
                     <div>Id: {user.id}</div>
                     <div>Name: {user.name}</div>
                     <div>UserName: {user.username}</div>
                     <div>Email: {user.email}</div>
+                    <Link to={'posts'}>
+                        <button>User Posts</button>
+                    </Link>
                 </div>
-            )}
-        </div>
+                <div>
+                    <Outlet/>
+                </div>
+            </>
+            }
+
+        </>
     );
 };
 
-export default UserDetails;
+export {UserDetails};
