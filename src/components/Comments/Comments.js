@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
+
 import {commentsService} from "../../services/comments.service";
-
-
 import css from './Comments.module.css'
 import {Comment} from "../Comment/Comment";
 

@@ -7,3 +7,7 @@ export * from './User/User';
 export * from './UserDetails/UserDetails';
 export * from './UserPost/UserPost';
 export * from './UserPosts/UserPosts';
+export * from './Albums/Albums';
+export * from './Album/Album';
+export * from './Photos/Photos';
+export * from './Photo/Photo';

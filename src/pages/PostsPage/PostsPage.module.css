@@ -2,11 +2,15 @@
     display: flex;
     column-gap: 50px;
 }
-.columnright{
+
+.columnright {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
 }
-.columnleft{
 
+.columnleft {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }

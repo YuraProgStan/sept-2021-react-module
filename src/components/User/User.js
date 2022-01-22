@@ -1,11 +1,17 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
+import css from './User.module.css'
+
 const User = ({user}) => {
-    let {name, id} = user
+    const {name, id} = user;
+
+
     return (
-        <div>
-            <Link to = {id.toString()} state ={user}>{name}</Link>
+        <div className={css.userwrap}>
+            <div>{name}</div>
+            <div><Link to = {id.toString()} state ={user}><button>User Details</button></Link></div>
+            <div><Link to = {`${id.toString()}/albums`} ><button>Albums</button></Link></div>
         </div>
     );
 };
