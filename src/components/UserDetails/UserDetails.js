@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link, Outlet, useLocation, useParams} from "react-router-dom";
+
 import {usersService} from "../../services/users.service";
 
 const UserDetails = () => {
@@ -13,7 +14,7 @@ const UserDetails = () => {
             }
             usersService.getById(id).then(value => setUser({...value}))
         },
-        [id]
+        [id,state]
     )
     return (
         <>
@@ -27,7 +28,7 @@ const UserDetails = () => {
                     <div>UserName: {user.username}</div>
                     <div>Email: {user.email}</div>
                     <Link to={'posts'}>
-                        <button>User Posts</button>
+                        <button>Posts</button>
                     </Link>
                 </div>
                 <div>

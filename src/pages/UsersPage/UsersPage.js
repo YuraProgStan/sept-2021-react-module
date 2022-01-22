@@ -17,7 +17,7 @@ const UsersPage = () => {
         <>
             <h1>Users</h1>
             <div className={css.wrap}>
-           <div>{users.map(value =><User key = {value.id} user = {value} />)}</div>
+           <div className={css.columnleft}>{users.map(value =><User key = {value.id} user = {value} />)}</div>
             <div className={css.columnright}><Outlet/></div>
             </div>
         </>

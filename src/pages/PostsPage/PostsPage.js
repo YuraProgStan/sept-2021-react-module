@@ -16,7 +16,7 @@ const PostsPage = () => {
         <>
             <h1>Posts</h1>
             <div className={css.wrap}>
-                <div>{posts.map(value => <Post key={value.id} post={value}/>)}</div>
+                <div className={css.columnleft}>{posts.map(value => <Post key={value.id} post={value}/>)}</div>
                 <div className={css.columnright}><Outlet/></div>
             </div>
         </>

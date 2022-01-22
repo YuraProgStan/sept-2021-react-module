@@ -12,16 +12,16 @@ const PostDetails = () => {
             return
         }
         postsService.getById(id).then(value => setPost({...value}))
-    }, [id]);
+    }, [id,state]);
 
     return (
         <>
             <h3>PostDetails</h3>
-            {post && (
+            {post &&
                 <>
                     <div>
-                        <div>Id: {post.id}</div>
                         <div>UserId: {post.userId}</div>
+                        <div>Id: {post.id}</div>
                         <div>title: {post.title}</div>
                         <div>body: {post.body}</div>
                         <Link to={'comments'}>
@@ -32,7 +32,7 @@ const PostDetails = () => {
                         <Outlet/>
                     </div>
                 </>
-            )}
+            }
 
         </>
     );
