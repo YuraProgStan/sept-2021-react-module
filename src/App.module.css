@@ -1,0 +1,8 @@
+.wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+}
+.wrapper>div:nth-child(2){
+  margin: 0 auto;
+}

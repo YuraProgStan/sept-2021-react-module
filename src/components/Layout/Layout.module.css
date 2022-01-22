@@ -1,0 +1,9 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.header a[class="active"]>button{
+    background-color: darkred;
+    color: #fff;
+}
