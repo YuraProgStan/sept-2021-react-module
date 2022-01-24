@@ -3,26 +3,22 @@ import {useEffect, useState} from "react";
 import {carService} from "../../services/carService";
 import Car from "../Car/Car";
 
-const Cars = ({trigger, trigger2, updateDelCar, trigger3, updateCarId}) => {
+const Cars = ({trigger, updateDelCar, setUpdateCar}) => {
     const [cars, setCars] = useState([]);
 
 
-     const delById = async (id) => {
-      await  carService.deleteById(id);
-        // cars.filter(car => car.id !== id);
-      await  updateDelCar(true);
-    }
+
 
 
     useEffect(() => {
         carService.getAll().then(value => setCars([...value]))
-    }, [trigger, trigger2, trigger3]);
+    }, [trigger]);
 
 
 
     return (
         <div>
-            {cars.map(car => <Car key={car.id} car={car} delById={delById} trigger3={trigger3} updateCarId={updateCarId} />)}
+            {cars.map(car => <Car key={car.id} car={car} updateDelCar={updateDelCar}  setUpdateCar={setUpdateCar} />)}
         </div>
     );
 };

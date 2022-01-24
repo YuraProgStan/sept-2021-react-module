@@ -1,11 +1,11 @@
 import Form from "./components/Form/Form";
 import Cars from "./components/Cars/Cars";
 import {useState} from "react";
+import './App.css'
 
 function App() {
     const [car, setCar] = useState(null);
-    const [delCar, setDelCar] = useState(false);
-    const [updateCar, setUpdateCar] = useState(false);
+    const [updateCar, setUpdateCar] = useState({});
 
 
 
@@ -13,10 +13,10 @@ function App() {
     //     setCar(data)
     // }
     return (
-        <>
-            <Form update={setCar}/>
-            <Cars trigger={car} trigger2 = {delCar} updateDelCar = {setDelCar} trigger3 = {updateCar} updateCarId = {setUpdateCar}   />
-        </>
+        <div className={'container'}>
+            <Form update={setCar} updateCar= {updateCar}/>
+            <Cars trigger={car}  updateDelCar = {setCar}   setUpdateCar = {setUpdateCar}   />
+        </div>
     );
 }
 
