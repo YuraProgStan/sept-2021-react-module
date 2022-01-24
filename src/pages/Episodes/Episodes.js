@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import { v4 as uniqueId } from 'uuid';
-import {Outlet} from "react-router-dom";
+import {Outlet, useLocation} from "react-router-dom";
 import {episodeService} from "../../sevices/axios/episode.service";
 import Episode from "../../components/Episode/Episode";
 
 
-const Episodes = ({begin, end, pages}) => {
-
+const Episodes = () => {
     const [episodes, setEpisodes] = useState([]);
+    const {state} = useLocation();
+    const {begin, end, pages} = state;
+console.log('begin');
    useEffect(() => {
        episodeService.getAll().then(value => setEpisodes([...value.results]));
+   }, [begin, end, pages]);
 
-   }, [pages])
     return (
         <div>
             <h2>Episodes</h2>

@@ -2,26 +2,39 @@ import React, {useState} from 'react';
 import {Link, Outlet} from "react-router-dom";
 
 const Layout = () => {
-    let [pages, setPages] = useState(1)
-    let begin = 0;
-    let end = 10;
-    const step = 10;
-    const change = () => {
-        begin = begin + step;
-        end = end + step;
-        setPages += 1;
-        console.log('work')
+    const step = 5;
+    let [pages, setPages] = useState(1);
+    let [begin, setBegin] = useState(0)
+    let [end, setEnd] = useState(step)
+    const next = () => {
+        setBegin(begin + step);
+        setEnd(end + step);
+        setPages(pages);
     }
-    console.log('begin = ', begin)
+    const prev = () => {
+        if (pages !== 1) {
+            setBegin(begin - step);
+            setEnd(end - step);
+            setPages(pages);
+        }
+    }
+    const state = {
+        'begin': begin,
+        'end': end,
+        'pages': pages
+    }
     return (
         <div>
-
             <div>
-                <button onClick={change}>Next</button>
-                <Link to = {'/'}><button>Prev</button></Link>
+                <Link to={(pages--).toString()} state={state}>
+                    <button onClick={prev}>Prev</button>
+                </Link>
+                <Link to={(pages++).toString()} state={state}>
+                    <button onClick={next}>Next</button>
+                </Link>
             </div>
 
-            <Outlet begin = {begin} end = {end} pages = {pages} />
+            <Outlet/>
         </div>
     );
 };
