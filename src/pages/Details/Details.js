@@ -7,7 +7,7 @@ import css from './Details.module.css'
 
 const Details = () => {
     const {state} = useLocation();
-
+console.log(state)
     return (
         <div>
             <h2>Details</h2>

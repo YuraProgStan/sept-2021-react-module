@@ -2,5 +2,5 @@
    display: grid;
     grid-template-columns: repeat(5, minmax(50px, 1fr));
     grid-template-rows: auto;
-    gap: 5px;
+    grid-gap: 20px;
 }

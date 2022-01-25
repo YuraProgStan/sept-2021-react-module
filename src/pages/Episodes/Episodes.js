@@ -3,36 +3,21 @@ import React, {useEffect, useState} from 'react';
 import {episodeService} from "../../sevices/axios/episode.service";
 import Episode from "../../components/Episode/Episode";
 import css from './Episodes.module.css'
+import {Link, useParams} from "react-router-dom";
 
 
 const Episodes = () => {
     const [episodes, setEpisodes] = useState({});
-    const [page, setPage] = useState(null);
+const {id} = useParams ();
 
-
-    const url = (query) => {
-        let str = query;
-        let reg = /\d+/g;
-        let num = str.match(reg);
-        setPage(num[0]);
-    }
 
     useEffect(() => {
-        if (!page) {
-            episodeService.getAll().then(value => setEpisodes({
+            episodeService.getPage(id).then(value => setEpisodes({
                 ...value,
                 info: value.info,
                 results: [...value.results]
             }));
-
-        } else {
-            episodeService.getPage(page).then(value => setEpisodes({
-                ...value,
-                info: value.info,
-                results: [...value.results]
-            }));
-        }
-    }, [page]);
+    }, [id]);
 
 
     return (
@@ -41,8 +26,8 @@ const Episodes = () => {
 
             {episodes.info &&
             <>
-                <button onClick={() => url(episodes.info.prev)}>Prev</button>
-                <button onClick={() => url(episodes.info.next)}>Next</button>
+               <Link to = {`/episodes/${+id -1}`}> <button disabled={!episodes.info.prev}>Prev</button></Link>
+                <Link to = {`/episodes/${+id +1}`}> <button disabled={!episodes.info.next}>Next</button></Link>
 
                 <div>count: {episodes.info.count}</div>
                 <div>pages: {episodes.info.pages}</div>
@@ -51,8 +36,10 @@ const Episodes = () => {
 
             </>
             }
-            <div className={css.episodes}>{episodes.results && episodes.results.map(value => <Episode key={value.id}
-                                                                                                      episodes={value}/>)}</div>
+            {episodes.results &&
+            <div className={css.episodes}>{episodes.results.map(
+                value => <Episode key={value.id} episodes={value}/>)}
+            </div>}
 
         </div>
     );
