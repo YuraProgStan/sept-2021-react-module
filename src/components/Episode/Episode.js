@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link, Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-const Episode = ({episodes: {id, name, air_date, episode}}) => {
+const Episode = ({episodes: {id, name, air_date, episode, characters}}) => {
 
     return (
         <div>
@@ -9,8 +9,7 @@ const Episode = ({episodes: {id, name, air_date, episode}}) => {
             <div>name: {name}</div>
             <div>air_date: {air_date}</div>
             <div>episode: {episode}</div>
-            {/*<Link to = "details"><button>Details</button></Link>*/}
-            {/*<Outlet />*/}
+         <Link to = "details" state = {characters} ><button>Details</button></Link>
         </div>
     );
 };
