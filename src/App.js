@@ -1,7 +1,8 @@
-import css from './App.module.css'
 import {useReducer} from "react";
-import Animal from "./components/Animal";
 import {v4 as idUnique} from "uuid";
+
+import css from './App.module.css'
+import Animal from "./components/Animal";
 
 const reducer = (state, action) => {
     switch (action.type) {
