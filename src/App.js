@@ -24,9 +24,11 @@ const App = () => {
         if (e.target.cat) {
             dispatch({type: 'cat', payload: e.target.cat.value})
 
+
         } else {
             dispatch({type: 'dog', payload: e.target.dog.value})
         }
+        e.target.reset()
     }
     return (
         <div>
@@ -34,13 +36,13 @@ const App = () => {
 
                 <div>
                     <form onSubmit={submit}>
-                        <label>Cat: </label><input type="text" name="cat"/>
+                        <label>Add Cat: </label><input type="text" name="cat"/>
                         <button>Save</button>
                     </form>
                 </div>
                 <div>
                     <form onSubmit={submit}>
-                        <label>Dog: </label><input type="text" name='dog'/>
+                        <label>Add Dog: </label><input type="text" name='dog'/>
                         <button>Save</button>
                     </form>
                 </div>
@@ -49,11 +51,11 @@ const App = () => {
             <div className={css.wrap}>
                 <div className={css.column}>
                     {state.cat &&
-                    state.cat.map(value => <Animal key = {idUnique()} animal = {value} />)}
+                    state.cat.map(value => <Animal key={idUnique()} animal={value}/>)}
                 </div>
                 <div className={css.column}>
                     {state.dog &&
-                    state.dog.map(value => <Animal key = {idUnique()}  animal = {value} />)}
+                    state.dog.map(value => <Animal key={idUnique()} animal={value}/>)}
                 </div>
             </div>
         </div>
