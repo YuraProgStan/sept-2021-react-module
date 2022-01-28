@@ -23,9 +23,7 @@ const App = () => {
         e.preventDefault();
         if (e.target.cat) {
             dispatch({type: 'cat', payload: e.target.cat.value})
-
-
-        } else {
+        } else if(e.target.dog) {
             dispatch({type: 'dog', payload: e.target.dog.value})
         }
         e.target.reset()
@@ -33,7 +31,6 @@ const App = () => {
     return (
         <div>
             <div className={css.header}>
-
                 <div>
                     <form onSubmit={submit}>
                         <label>Add Cat: </label><input type="text" name="cat"/>
