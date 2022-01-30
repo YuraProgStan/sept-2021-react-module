@@ -7,7 +7,7 @@ import {createCar, updateCarThunk} from "../../store";
 import {CarValidator} from "../../validator/car.validator";
 
 const Form = () => {
-    const {handleSubmit, register, reset, errors, setValue} = useForm({resolver: joiResolver(CarValidator), mode: "onTouched"});
+    const {handleSubmit, register, reset, setValue, formState:{errors}} = useForm({resolver: joiResolver(CarValidator), mode: "onTouched"});
     const dispatch = useDispatch();
     const {form} = useSelector(state => state['carReducer']);
     const {id, model, price, year} = form;

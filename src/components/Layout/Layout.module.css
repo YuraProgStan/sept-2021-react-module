@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+.navbar{
+    display: flex;
+    column-gap: 20px;
+}
+.navbar a[class='active'] button{
+    background-color: darkred;
+    color: #fff;
+}
+button {
+    width: 150px;
+}
