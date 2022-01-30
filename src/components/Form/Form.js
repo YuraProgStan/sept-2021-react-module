@@ -7,14 +7,19 @@ const Form = () => {
     const {handleSubmit, register, reset} = useForm();
     const dispatch = useDispatch();
     const submit = (data) => {
+        if(id){
+
+        }
+        else {
         dispatch(createCar({data}));
+        }
         reset();
     }
     return (        <form onSubmit={handleSubmit(submit)}>
             <label>Model: <input type="text" {...register('model')}/></label>
             <label>Price: <input type="text" {...register('price')}/></label>
             <label>Year: <input type="text" {...register('year')}/></label>
-            <button>Save</button>
+            <button>{id ? 'Update' : 'Create'}</button>
         </form>
     );
 };
