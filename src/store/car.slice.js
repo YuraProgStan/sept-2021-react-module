@@ -38,9 +38,13 @@ export const deleteCarThunk = createAsyncThunk(
 
 export const updateCarThunk = createAsyncThunk(
     'carSlice/updateCar',
-    async ({form}, {dispatch}) => {
-        const {id} = form;
-        await carService.updateById({id,form})
+    async ({data,id}, {rejectWithValue,dispatch}) => {
+     try{
+        await carService.updateById(id,data);
+         dispatch(getAllCars());
+     }catch (e){
+         return rejectWithValue(e.message)
+     }
     }
 )
 const carSlice = createSlice({
@@ -73,6 +77,11 @@ const carSlice = createSlice({
             state.cars = action.payload
         },
         [getAllCars.rejected]: (state, action) => {
+            state.status = 'rejected';
+            state.error = action.payload
+
+        },
+        [updateCarThunk.rejected]: (state, action) => {
             state.status = 'rejected';
             state.error = action.payload
 
