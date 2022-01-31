@@ -63,7 +63,10 @@ const carSlice = createSlice({
             state.cars.push(action.payload.data)
         },
         deleteCar: (state, action) => {
-            state.cars = state.cars.filter(car => car.id !== action.payload.id)
+            state.cars = state.cars.filter(car => car.id !== action.payload.id);
+            //or
+            // const index = state.cars.findIndex(car=> car.id ===action.payload.id);
+            // state.cars.splice(index, index);
         },
         addForm: (state, action) => {
             state.form = action.payload.car;
