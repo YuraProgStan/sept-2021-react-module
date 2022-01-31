@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
-import {getAllPostsThunk} from "../../store/jsonplace.slice";
+import {getAllPostsThunk} from "../../store";
 import {Post} from "../Post/Post";
 import css from './Posts.module.css'
 
 const Posts = () => {
-    const {posts} = useSelector(state => state['jsonplaceReducer']);
+    const {posts} = useSelector(state => state['postReducer']);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllPostsThunk())

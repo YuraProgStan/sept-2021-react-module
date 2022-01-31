@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
-import {getAllCommentsThunk} from "../../store/jsonplace.slice";
+import {getAllCommentsThunk} from "../../store";
 
 import css from './Comments.module.css'
 import {Comment} from "../Comment/Comment";
 
 const Comments = () => {
-    const {comments} = useSelector(state => state['jsonplaceReducer']);
+    const {comments} = useSelector(state => state['commentReducer']);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllCommentsThunk())

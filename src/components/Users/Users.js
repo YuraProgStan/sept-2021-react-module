@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
-import {getAllUsersThunk} from "../../store/jsonplace.slice";
+
 import {User} from "../User/User";
 import css from "../Users/Users.module.css";
+import {getAllUsersThunk} from "../../store";
 
 const Users = () => {
-    const {users,status, error} = useSelector(state => state['jsonplaceReducer']);
+    const {users,status, error} = useSelector(state => state['userReducer']);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllUsersThunk())

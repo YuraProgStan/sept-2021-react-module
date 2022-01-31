@@ -10,15 +10,18 @@ const Form = () => {
     const {handleSubmit, register, reset, setValue, formState:{errors}} = useForm({resolver: joiResolver(CarValidator), mode: "onTouched"});
     const dispatch = useDispatch();
     const {form} = useSelector(state => state['carReducer']);
+
     const {id, model, price, year} = form;
     useEffect(() => {
+        if(id){
         setValue('model', model);
         setValue('price', price);
         setValue('year', year);
+        }
     }, [id])
     const submit = (data) => {
         if (id) {
-            dispatch(updateCarThunk({data,id}))
+            dispatch(updateCarThunk({data,id}));
         } else {
             dispatch(createCar({data}));
         }

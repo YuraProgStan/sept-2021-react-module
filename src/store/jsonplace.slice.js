@@ -2,7 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {postService, userService} from "../services";
 import {commentService} from "../services/comment.service";
 
-export const getAllUsersThunk= createAsyncThunk(
+export const getAllUsersThunkOld= createAsyncThunk(
     'jsonplaceSlice/getAllUsers',
     async (_, {rejectWithValue}) => {
         try {
@@ -15,7 +15,7 @@ export const getAllUsersThunk= createAsyncThunk(
         }
     }
 )
-export const getAllPostsThunk = createAsyncThunk(
+export const getAllPostsThunkOld = createAsyncThunk(
     'jsonplaceSlice/getAllPosts',
     async (_, {dispatch}) => {
         try {
@@ -26,7 +26,7 @@ export const getAllPostsThunk = createAsyncThunk(
         }
     }
 )
-export const getAllCommentsThunk = createAsyncThunk(
+export const getAllCommentsThunkOld = createAsyncThunk(
     'jsonplaceSlice/getAllComments',
     async (_, {dispatch}) => {
         try {
@@ -55,15 +55,15 @@ const jsonplaceSlice = createSlice({
         }
     },
     extraReducers:{
-            [getAllUsersThunk.pending]: (state, action) => {
+            [getAllUsersThunkOld.pending]: (state, action) => {
                 state.status = 'pending';
                 state.error = null;
             },
-            [getAllUsersThunk.fulfilled]: (state, action) => {
+            [getAllUsersThunkOld.fulfilled]: (state, action) => {
                 state.status = 'fulfilled';
                 state.users = action.payload
             },
-            [getAllUsersThunk.rejected]: (state, action) => {
+            [getAllUsersThunkOld.rejected]: (state, action) => {
                 state.status = 'rejected';
                 state.error = action.payload
 
