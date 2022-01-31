@@ -1,5 +1,5 @@
 import './App.css';
-import {Cars, Form, Layout} from "./components";
+import {Layout} from "./components";
 import {Routes, Route} from 'react-router-dom'
 import {CarsPage, CommentsPage, PostsPage, UsersPage} from "./pages";
 
