@@ -37,7 +37,7 @@ export const deleteCarThunk = createAsyncThunk(
 )
 
 export const updateCarThunk = createAsyncThunk(
-    'carSlice/updateCar',
+    'carSlice/updateCarThunk',
     async ({data, id}, {rejectWithValue, dispatch}) => {
         try {
             const newCar = await carService.updateById(id, data);
@@ -75,6 +75,9 @@ const carSlice = createSlice({
                     } else {
                         return car
                     }
+                    //or
+                  //  const index = state.cars.findIndex(car=> car.id ===action.payload.car.id)
+                  // state.cars[index] = action.payload.car
                 }
             );
         }
