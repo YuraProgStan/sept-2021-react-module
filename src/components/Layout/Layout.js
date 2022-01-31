@@ -8,8 +8,8 @@ const Layout = () => {
         <div className={css.navbar}>
             <NavLink to={'cars'}><button>Cars</button></NavLink>
             <NavLink to={'users'}><button>Users</button></NavLink>
-            {/*<NavLink to={'cars'}>Cars</NavLink>*/}
-            {/*<NavLink to={'cars'}>Cars</NavLink>*/}
+            <NavLink to={'posts'}><button>Posts</button></NavLink>
+            <NavLink to={'comments'}><button>Comments</button></NavLink>
 
         </div>
         <div>

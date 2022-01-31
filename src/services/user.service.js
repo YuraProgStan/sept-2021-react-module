@@ -1,6 +1,6 @@
-import {urls2} from "../configs";
-import {axios2Service} from "./axios2.service";
+import {axiosNewService} from "./axiosnew.service";
+import {urlsNew} from "../configs";
 
 export const userService = {
-    getAll: () => axios2Service.get(urls2.users).then(value => value.data)
+    getAll: () => axiosNewService.get(urlsNew.users).then(value => value.data)
 }

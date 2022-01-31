@@ -1,19 +1,39 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import {userService} from "../services";
-import axios from "axios";
-import {getAllCars} from "./car.slice";
+import {postService, userService} from "../services";
+import {commentService} from "../services/comment.service";
 
-export const getAllUsers = createAsyncThunk(
+export const getAllUsersThunk= createAsyncThunk(
     'jsonplaceSlice/getAllUsers',
     async (_, {rejectWithValue}) => {
         try {
-
             const users = await userService.getAll();
             return users;
 
 
         } catch (e) {
             return rejectWithValue(e.message)
+        }
+    }
+)
+export const getAllPostsThunk = createAsyncThunk(
+    'jsonplaceSlice/getAllPosts',
+    async (_, {dispatch}) => {
+        try {
+            const posts = await postService.getAll();
+            dispatch(getAllPosts({posts}));
+        } catch (e) {
+          console.log(e)
+        }
+    }
+)
+export const getAllCommentsThunk = createAsyncThunk(
+    'jsonplaceSlice/getAllComments',
+    async (_, {dispatch}) => {
+        try {
+            const comments = await commentService.getAll();
+            dispatch(getAllComments({comments}));
+        } catch (e) {
+            console.log(e)
         }
     }
 )
@@ -27,18 +47,23 @@ const jsonplaceSlice = createSlice({
         error: null
     },
     reducers:{
-
+        getAllPosts:(state, action) =>{
+            state.posts = action.payload.posts;
+        },
+        getAllComments:(state, action) =>{
+            state.comments = action.payload.comments;
+        }
     },
     extraReducers:{
-            [getAllUsers.pending]: (state, action) => {
+            [getAllUsersThunk.pending]: (state, action) => {
                 state.status = 'pending';
                 state.error = null;
             },
-            [getAllUsers.fulfilled]: (state, action) => {
+            [getAllUsersThunk.fulfilled]: (state, action) => {
                 state.status = 'fulfilled';
                 state.users = action.payload
             },
-            [getAllUsers.rejected]: (state, action) => {
+            [getAllUsersThunk.rejected]: (state, action) => {
                 state.status = 'rejected';
                 state.error = action.payload
 
@@ -48,5 +73,5 @@ const jsonplaceSlice = createSlice({
     }
 )
 const jsonplaceReducer = jsonplaceSlice.reducer
-
+export const {getAllPosts, getAllComments} = jsonplaceSlice.actions
 export {jsonplaceReducer}

@@ -1,2 +1,2 @@
 export * from  './urls';
-export * from './urls2'
+export * from './urlsNew'
