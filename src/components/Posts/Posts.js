@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from 'react-redux';
 
-import {getAllPostsThunk} from "../../store";
-import {Post} from "../Post/Post";
+import {getAllPostsThunk} from '../../store';
+import {Post} from '../Post/Post';
 import css from './Posts.module.css'
 
 const Posts = () => {

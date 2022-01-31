@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from 'react-redux';
 
-
-import {User} from "../User/User";
-import css from "../Users/Users.module.css";
-import {getAllUsersThunk} from "../../store";
+import {User} from '../User/User';
+import css from '../Users/Users.module.css';
+import {getAllUsersThunk} from '../../store';
 
 const Users = () => {
     const {users,status, error} = useSelector(state => state['userReducer']);

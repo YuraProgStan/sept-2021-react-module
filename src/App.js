@@ -1,9 +1,7 @@
 import './App.css';
-import {Layout} from "./components";
-import {Routes, Route} from 'react-router-dom'
-import {CarsPage, CommentsPage, PostsPage, UsersPage} from "./pages";
-
-
+import {Layout} from './components';
+import {Routes, Route, Navigate} from 'react-router-dom'
+import {CarsPage, CommentsPage, PostsPage, UsersPage} from './pages';
 
 const App = () => {
 
@@ -11,6 +9,7 @@ const App = () => {
         <>
             <Routes>
                 <Route path = {'/'} element = {<Layout />} >
+                    <Route index element ={<Navigate to={'cars'} />} />
                  <Route path = {'cars'}  element = {<CarsPage />} />
                  <Route path = {'users'}  element = {<UsersPage />} />
                  <Route path = {'posts'}  element = {<PostsPage />} />

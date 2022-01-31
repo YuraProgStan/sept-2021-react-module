@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Cars, Form} from "../../components";
+import {Cars, Form} from '../../components';
 
 const CarsPage = () => {
     return (

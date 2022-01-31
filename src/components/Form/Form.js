@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
-import {useDispatch, useSelector} from "react-redux";
-import {joiResolver} from "@hookform/resolvers/joi";
+import {useDispatch, useSelector} from 'react-redux';
+import {joiResolver} from '@hookform/resolvers/joi';
 
-import {createCar, updateCarThunk} from "../../store";
-import {CarValidator} from "../../validator/car.validator";
+import {createCar, updateCarThunk} from '../../store';
+import {CarValidator} from '../../validator/car.validator';
 
 const Form = () => {
     const {handleSubmit, register, reset, setValue, formState:{errors}} = useForm({resolver: joiResolver(CarValidator), mode: "onTouched"});

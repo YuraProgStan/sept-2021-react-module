@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Comment = ({comment:{postId, id, name, email, body}}) => {
     return (
         <div>

@@ -1,7 +1,7 @@
 import React from 'react';
-import {useDispatch} from "react-redux";
+import {useDispatch} from 'react-redux';
 
-import {deleteCarThunk, addForm} from "../../store";
+import {deleteCarThunk, addForm} from '../../store';
 
 const Car = ({car}) => {
     const {id, model, price, year} = car;
