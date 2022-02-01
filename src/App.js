@@ -1,62 +1,55 @@
 import {useReducer} from "react";
-import {v4 as idUnique} from "uuid";
 
 import css from './App.module.css'
-import Animal from "./components/Animal";
+import Cat from "./components/Cat/Cat";
+import Dog from "./components/Dog/Dog";
+import Form from "./components/Form/Form";
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case 'cat':
-            return {...state, cat: [...state.cat, action.payload]}
-        case 'dog':
-            return {...state, dog: [...state.dog, action.payload]}
+        case 'addCat':
+            return {...state, cats: [...state.cats, {id: new Date().getTime(), name: action.payload}]};
+
+        case 'addDog':
+            return {...state, dogs: [...state.dogs, {id: new Date().getTime(), name: action.payload}]};
+        case 'delCat':
+            const cats = [...state.cats];
+            // return {...state, cat: state.cat.filter(cat => cat.id !== action.payload.id)}
+            const indexCat = cats.findIndex(cat => cat.id === action.payload.id);
+            cats.splice(indexCat, 1);
+            return {...state, cats};
+        case 'delDog':
+            const dogs = [...state.dogs];
+            // return {...state, dogs: state.dogs.filter(dog => dog.id !== action.payload.id)}
+            const indexDog = dogs.findIndex(dog => dog.id === action.payload.id);
+            dogs.splice(indexDog, 1);
+            return {...state, dogs};
+
         default:
             return state
     }
 }
 
 const App = () => {
-    const [state, dispatch] = useReducer(reducer, {cat: '', dog: ''});
+    const [state, dispatch] = useReducer(reducer, {cats: [], dogs: []});
 
-
-    const submit = (e) => {
-        e.preventDefault();
-        if (e.target.cat) {
-            dispatch({type: 'cat', payload: e.target.cat.value})
-        } else if(e.target.dog) {
-            dispatch({type: 'dog', payload: e.target.dog.value})
-        }
-        e.target.reset()
-    }
     return (
         <div>
-            <div className={css.header}>
-                <div>
-                    <form onSubmit={submit}>
-                        <label>Add Cat: </label><input type="text" name="cat"/>
-                        <button>Save</button>
-                    </form>
-                </div>
-                <div>
-                    <form onSubmit={submit}>
-                        <label>Add Dog: </label><input type="text" name='dog'/>
-                        <button>Save</button>
-                    </form>
-                </div>
-            </div>
+            <Form dispatch={dispatch}/>
             <hr/>
             <div className={css.wrap}>
                 <div className={css.column}>
-                    {state.cat &&
-                    state.cat.map(value => <Animal key={idUnique()} animal={value}/>)}
+                    {state.cats &&
+                    state.cats.map(value => <Cat key={value.id} cat={value} dispatch={dispatch}
+                    />)}
                 </div>
                 <div className={css.column}>
-                    {state.dog &&
-                    state.dog.map(value => <Animal key={idUnique()} animal={value}/>)}
+                    {state.dogs &&
+                    state.dogs.map(value => <Dog key={value.id} dog={value} dispatch={dispatch}
+                    />)}
                 </div>
             </div>
         </div>
-
     );
 }
 
