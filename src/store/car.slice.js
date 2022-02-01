@@ -63,26 +63,27 @@ const carSlice = createSlice({
             state.cars.push(action.payload.data)
         },
         deleteCar: (state, action) => {
-            state.cars = state.cars.filter(car => car.id !== action.payload.id);
+            // state.cars = state.cars.filter(car => car.id !== action.payload.id);
             //or
-            // const index = state.cars.findIndex(car=> car.id ===action.payload.id);
-            // state.cars.splice(index, index);
+            const index = state.cars.findIndex(car => car.id === action.payload.id);
+            state.cars.splice(index, 1);
         },
         addForm: (state, action) => {
             state.form = action.payload.car;
         },
         updateCars: (state, action) => {
-            state.cars = state.cars.map(car => {
-                    if (car.id === action.payload.newCar.id) {
-                         return action.payload.newCar
-                    } else {
-                        return car
-                    }
-                    //or
-                  //  const index = state.cars.findIndex(car=> car.id ===action.payload.newCar.id)
-                  // state.cars[index] = action.payload.newCar
-                }
-            );
+            // state.cars = state.cars.map(car => {
+            //         if (car.id === action.payload.newCar.id) {
+            //             return action.payload.newCar
+            //         } else {
+            //             return car
+            //         }
+            //     }
+            // );
+            //or
+            const index = state.cars.findIndex(car => car.id === action.payload.newCar.id)
+            state.cars[index] = action.payload.newCar
+
         }
 
     },
