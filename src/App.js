@@ -12,15 +12,17 @@ const reducer = (state, action) => {
 
         case 'addDog':
             return {...state, dogs: [...state.dogs, {id: new Date().getTime(), name: action.payload}]};
+
         case 'delCat':
-            const cats = [...state.cats];
             // return {...state, cat: state.cat.filter(cat => cat.id !== action.payload.id)}
+            const cats = [...state.cats];
             const indexCat = cats.findIndex(cat => cat.id === action.payload.id);
             cats.splice(indexCat, 1);
             return {...state, cats};
+
         case 'delDog':
+            // return {...state, dogs: state.dogs.filter(dog => dog.id !== action.payload.id)};
             const dogs = [...state.dogs];
-            // return {...state, dogs: state.dogs.filter(dog => dog.id !== action.payload.id)}
             const indexDog = dogs.findIndex(dog => dog.id === action.payload.id);
             dogs.splice(indexDog, 1);
             return {...state, dogs};
