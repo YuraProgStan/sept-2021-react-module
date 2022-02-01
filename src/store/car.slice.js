@@ -79,8 +79,8 @@ const carSlice = createSlice({
                         return car
                     }
                     //or
-                  //  const index = state.cars.findIndex(car=> car.id ===action.payload.car.id)
-                  // state.cars[index] = action.payload.car
+                  //  const index = state.cars.findIndex(car=> car.id ===action.payload.newCar.id)
+                  // state.cars[index] = action.payload.newCar
                 }
             );
         }
