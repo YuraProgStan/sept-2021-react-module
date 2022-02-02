@@ -13,7 +13,8 @@ const Search = ({item}) => {
 
     const {search} = item
     const submit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        dispatch(delSearch(item.id))
     }
     return (
         <div>
@@ -28,10 +29,7 @@ const Search = ({item}) => {
                     ? <label className={css.check}>{search}</label>
                     : <label className={css.uncheck}>{search}</label>
                 }
-                <button onClick={() => {
-                    dispatch(delSearch(item.id))
-                }}>Delete
-                </button>
+                <button>Delete</button>
             </form>
         </div>
     );
