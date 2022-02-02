@@ -7,11 +7,8 @@ import {changeCheck, delSearch} from "../../store/form.slice";
 
 const Search = ({item}) => {
     const dispatch = useDispatch();
-    const {searches} = useSelector(state => state['formReducer']);
-    const singleSearch = searches.filter(value => value.id === item.id);
-    const checked = singleSearch[0].checked;
 
-    const {search} = item
+    const {search,checked,id} = item;
     const submit = (e) => {
         e.preventDefault();
         dispatch(delSearch(item.id))
@@ -20,15 +17,12 @@ const Search = ({item}) => {
         <div>
             <form onSubmit={submit}>
                 <input type="checkbox"
-                       defaultChecked={false}
+                       value={checked}
                        onChange={() => {
-                           dispatch(changeCheck(item.id))
+                           dispatch(changeCheck(id))
                        }}
                 />
-                {checked
-                    ? <label className={css.check}>{search}</label>
-                    : <label className={css.uncheck}>{search}</label>
-                }
+                <label className={checked?css.check:css.uncheck}>{search}</label>
                 <button>Delete</button>
             </form>
         </div>

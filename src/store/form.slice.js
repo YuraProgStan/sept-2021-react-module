@@ -14,12 +14,16 @@ const formSlice = createSlice({
             })
         },
         delSearch: (state, action) => {
-            state.searches = state.searches.filter(search => search.id !== action.payload)
+            // state.searches = state.searches.filter(search => search.id !== action.payload);
+            const index = state.searches.findIndex(search=>search.id===action.payload);
+            state.searches.splice(index,1);
         },
         changeCheck: (state, action) => {
-            const index = state.searches.findIndex(search => search.id === action.payload)
-           const value = state.searches[index]['checked'];
-            state.searches[index]['checked'] = !value;
+            // const index = state.searches.findIndex(search => search.id === action.payload);
+            // const value = state.searches[index]['checked'];
+            // state.searches[index]['checked'] = !value;
+            const search =state.searches.find(item => item.id===action.payload)
+            search.checked=!search.checked
 
         }
     }
