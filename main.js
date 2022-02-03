@@ -17,4 +17,4 @@ function incAge(someUser, inc) {
 }
 console.log(sum(1, 2));
 showSum(2, 3);
-console.log(incAge(user, 2));
+incAge(user, 2);
