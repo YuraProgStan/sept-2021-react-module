@@ -4,7 +4,7 @@ import {FC} from 'react';
 const App: FC = () => {
     return (
         <div>
-          App
+          App Temp
         </div>
     );
 };
