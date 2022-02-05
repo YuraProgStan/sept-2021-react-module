@@ -1,10 +1,13 @@
 import React from 'react';
 import {FC} from 'react';
+import {Cars, Form} from "./components";
 
 const App: FC = () => {
     return (
         <div>
-          App
+          <Form />
+            <hr/>
+            <Cars />
         </div>
     );
 };
