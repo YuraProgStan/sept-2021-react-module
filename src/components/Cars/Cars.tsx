@@ -1,9 +1,19 @@
-import React, {FC} from 'react';
+import {FC, useEffect} from 'react';
+import {useAppDispatch, useAppSelector} from '../../hooks';
+import {Car} from '../Car/Car';
+import {getAllCars} from '../../store';
 
-const Cars:FC = () => {
+const Cars: FC = () => {
+    const {cars} = useAppSelector(state => state.car);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(getAllCars())
+    }, [])
+
     return (
         <div>
-           Cars
+            {cars.map(car =><Car key={car.id} car={car} />)}
         </div>
     );
 };
