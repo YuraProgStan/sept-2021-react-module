@@ -1,4 +1,12 @@
-export interface IMoovie{
+export interface IMoviesList{
+    page:number;
+    results:IMovieResults[];
+    total_pages:number;
+    total_results:number;
+}
+
+
+export interface IMovieResults{
     adult: boolean,
     backdrop_path: string,
     genre_ids: number[],

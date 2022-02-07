@@ -1,16 +1,22 @@
 import React from 'react';
 import MoviesList from "../../components/MoviesList/MoviesList";
 import {Outlet} from "react-router-dom";
+import {GenresList} from "../../components";
 
 const MoviesPage = () => {
     return (
         <>
             <div>
-                <MoviesList />
+                <GenresList/>
             </div>
             <div>
-                <Outlet />
+                <Outlet/>
             </div>
+            <div>
+                <MoviesList/>
+            </div>
+
+
         </>
     );
 };
