@@ -1,13 +1,16 @@
 import React, {FC} from 'react';
-import {NavLink, Outlet} from 'react-router-dom';
+import {NavLink, Outlet, useNavigate} from 'react-router-dom';
 import css from './Header.module.css';
+import {UserInfo} from "../UserInfo/UserInfo";
 
 const Header: FC = () => {
+    // const navigate = useNavigate();
     return (
         <>
         <div className={css.header}>
-            <NavLink to={'movies'}><button>Movies</button></NavLink>
-            {/*<NavLink to={'movies/genres'}><button>Genres</button></NavLink>*/}
+            <UserInfo />
+            <NavLink to={'movies/page/1'}><button>Movies</button></NavLink>
+            {/*<button onClick={()=>{navigate(-1)}}>Movies</button>*/}
         </div>
             <div>
                 <Outlet />

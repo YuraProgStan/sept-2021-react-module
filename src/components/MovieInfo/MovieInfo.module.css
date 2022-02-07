@@ -1,0 +1,9 @@
+.movieinfo{
+    display: flex;
+    column-gap: 20px;
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}

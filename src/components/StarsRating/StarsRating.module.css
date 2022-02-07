@@ -1,0 +1,21 @@
+/*.checked {*/
+/*    background-color: darkorange;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    border: 1px solid black;*/
+/*}*/
+.checked {
+    margin-bottom: 30px;
+   font-size: 30px;
+    color: #b9cb41;
+}
+
+
+.unchecked{
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #dddddd;
+}
+.stars {
+    display: flex;
+}

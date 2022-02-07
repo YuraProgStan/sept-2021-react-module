@@ -1,11 +1,15 @@
 import React from 'react';
 import MoviesList from "../../components/MoviesList/MoviesList";
-import {Outlet} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 import {GenresList} from "../../components";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {setPages} from "../../store";
 
 const MoviesPage = () => {
     return (
         <>
+
+
             <div>
                 <GenresList/>
             </div>
@@ -13,7 +17,7 @@ const MoviesPage = () => {
                 <Outlet/>
             </div>
             <div>
-                <MoviesList/>
+                <MoviesList  />
             </div>
 
 

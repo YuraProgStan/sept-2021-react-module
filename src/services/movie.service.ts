@@ -7,7 +7,7 @@ import {IMovieDetails, IMoviesList} from '../interfaces';
 
 
 export const movieService = {
-    getAll:()=> axiosService.get<IMoviesList>(`${urls.moviesList}?api_key=${api_key}`),
+    getAll:(page:number)=> axiosService.get<IMoviesList>(`${urls.moviesList}?api_key=${api_key}&page=${page}`),
     getById:(id:number)=>axiosService.get<IMovieDetails>(`${urls.movie}${id}?api_key=${api_key}`),
     getImage: (urlImage:string, widthImage:string) =>`${imageURL}${widthImage}${urlImage}?api_key=${api_key}`
 }
