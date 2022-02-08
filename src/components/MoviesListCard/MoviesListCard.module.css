@@ -13,3 +13,9 @@
 span{
     padding-right: 10px;
 }
+/*__________________________*/
+@media screen and (max-width: 780px) {
+    .movie div{
+        margin: 0 auto;
+    }
+}

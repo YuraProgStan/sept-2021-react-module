@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+
 import {IMoviesList, IMovieDetails} from '../../interfaces';
 import {movieService} from '../../services/';
 
@@ -51,7 +52,7 @@ const movieSlice = createSlice({
         setPages:(state, action:PayloadAction<{page:string}>)=>{
             state.pages = action.payload.page;
         },
-        setCurrenGenres:(state, action:PayloadAction<{genre:string}>)=>{
+        setCurrentGenres:(state, action:PayloadAction<{genre:string}>)=>{
             state.genres = action.payload.genre;
         }
     }
@@ -59,4 +60,4 @@ const movieSlice = createSlice({
 
 const movieReducer = movieSlice.reducer;
 export default  movieReducer;
-export const{setMovies, setMovieDetails,setPages,setCurrenGenres} = movieSlice.actions
+export const{setMovies, setMovieDetails,setPages,setCurrentGenres} = movieSlice.actions

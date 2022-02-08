@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
-import {IThemeState, setThem} from "../../store";
-import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+
+import {setThem} from '../../store';
+import {useAppDispatch, useAppSelector} from '../../hooks/redux';
 import css from './Switcher.module.css'
 
 const Switcher: FC = () => {

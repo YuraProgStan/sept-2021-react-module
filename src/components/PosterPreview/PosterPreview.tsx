@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import {movieService} from "../../services";
+
+import {movieService} from '../../services';
 import css from './PosterPreview.module.css';
 
 const PosterPreview: FC<{ poster_path: string, title: string,width:string }> = ({poster_path, title,width}) => {

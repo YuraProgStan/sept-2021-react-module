@@ -19,8 +19,7 @@
     "react-router-dom": "^6.2.1",
     "@reduxjs/toolkit": "^1.7.2",
     "react-redux": "^7.2.6",
-    "typescript-plugin-css-modules": "^3.4.0",
-    "react-hook-form": "^7.26.1"
+    "typescript-plugin-css-modules": "^3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

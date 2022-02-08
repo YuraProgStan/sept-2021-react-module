@@ -1,8 +1,9 @@
 import React, {FC} from 'react';
 import {NavLink, Outlet} from 'react-router-dom';
+
 import css from './Header.module.css';
 import {UserInfo} from '../../components';
-import {useAppSelector} from "../../hooks/redux";
+import {useAppSelector} from '../../hooks/redux';
 
 const Header: FC = () => {
 const {thems}=useAppSelector(state=> state.them);

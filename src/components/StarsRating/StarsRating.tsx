@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+
 import css from './StarsRating.module.css'
 
 const StarsRating:FC<{vote_average:number}> = ({vote_average}) => {

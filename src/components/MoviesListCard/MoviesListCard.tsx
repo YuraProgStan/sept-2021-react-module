@@ -2,10 +2,11 @@ import React, {FC} from 'react';
 import {IMovieResults} from "../../interfaces";
 import css from './MoviesListCard.module.css'
 import {PosterPreview} from "../PosterPreview/PosterPreview";
-import {Link} from "react-router-dom";
-import {StarsRating} from "../StarsRating/StarsRating";
-import {urlsImage} from "../../constants";
-import {useAppSelector, useGenreNames} from "../../hooks/redux";
+import {Link} from 'react-router-dom';
+
+import {StarsRating} from '../StarsRating/StarsRating';
+import {urlsImage} from '../../constants';
+import {useAppSelector, useGenreNames} from '../../hooks/redux';
 
 const MoviesListCard: FC<{ movie: IMovieResults }> = ({movie}) => {
     const {original_title, popularity, vote_average, poster_path, title, id, genre_ids} = movie;

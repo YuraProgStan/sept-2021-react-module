@@ -1,6 +1,5 @@
 import {axiosService} from './axios.service';
 import {api_key, imageURL, urls} from '../constants';
-
 import {IMovieDetails, IMoviesList} from '../interfaces';
 
 

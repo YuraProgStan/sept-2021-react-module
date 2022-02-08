@@ -27,3 +27,24 @@
     background-color: unset;
 
 }
+/*
+__________________________________*/
+@media screen and (max-width: 1700px) {
+.movies{
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+}
+}
+@media screen and (max-width: 1199px) {
+    .movies{
+        grid-template-columns: repeat(2, minmax(50px, 1fr));
+    }
+}
+@media screen and (max-width: 780px) {
+    .movies {
+        grid-template-columns: repeat(1, minmax(50px, 1fr));
+    }
+.pages{
+
+    justify-content: center;
+}
+}

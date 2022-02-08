@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import {IGenre} from "../../interfaces";
+
+import {IGenre} from '../../interfaces';
 
 const GenreBadge:FC<{genre:IGenre}> = ({genre:{id,name}}) => {
 

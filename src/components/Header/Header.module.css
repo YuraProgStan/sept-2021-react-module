@@ -1,14 +1,13 @@
-*{
-    font-size:18px;
-    box-sizing: border-box;
 
+.container{
+    margin: 0 auto;
+    padding: 20px;
+    background-color:#F8F8F8FF ;
 }
-h1{
-    font-size: 26px;
-}
+
 .wrap{
     display: flex;
-    background-color: #F8F8F8FF;
+    background-color: #eeeeee;
     border-radius: 20px;
     color: #3e3a56;
 }
@@ -56,11 +55,6 @@ background-color:unset;
 .wrapdarked select{
     color:#fff;
 }
-.container{
-    margin: 0 auto;
-    padding: 20px;
-    background-color:#F8F8F8FF ;
-}
 
 
 button{
@@ -75,4 +69,24 @@ a[class="active"] button {
 }
 a:hover button{
     background-color: rgba(255, 255, 255, 0.1);
+}
+/*___________________________________________________*/
+@media screen and (max-width: 780px) {
+    .wrap, .wrapdarked{
+        flex-direction: column;
+    }
+    .header, .main{
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        padding: 0;
+    }
+    .main{
+        padding-top: 10px;
+    }
+}
+@media screen and (max-width: 413px){
+    .container{
+        padding: 0;
+    }
+    .main{padding:10px}
 }

@@ -1,5 +1,6 @@
 import React, {FC, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+
 import {useAppDispatch, useAppSelector} from '../../hooks/redux';
 import {getAllMovies, getAllMoviesWithGenre, setPages} from '../../store';
 import {MoviesListCard} from '../MoviesListCard/MoviesListCard';
@@ -38,7 +39,7 @@ const MoviesList: FC = () => {
                     </button>
                 </Link>
             </div>
-                <div className={css.movies}>{moviesList.results.map(movie => <MoviesListCard key={movie.id} movie={movie}/>)}</div>
+              <div className={css.movies}>{moviesList.results.map(movie => <MoviesListCard key={movie.id} movie={movie}/>)}</div>
 
             </>
             }

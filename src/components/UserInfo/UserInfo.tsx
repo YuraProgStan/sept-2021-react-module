@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+
 import css from './UserInfo.module.css'
 
 const UserInfo: FC = () => {
