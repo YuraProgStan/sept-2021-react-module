@@ -7,3 +7,4 @@ export * from './MoviesList/MoviesList';
 export * from './PosterPreview/PosterPreview';
 export * from './StarsRating/StarsRating';
 export  * from './GenresList/GenresList';
+export * from './Form/Form';

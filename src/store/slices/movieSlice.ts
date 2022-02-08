@@ -5,19 +5,28 @@ import {movieService} from '../../services/';
 interface IMovieState {
     moviesList: IMoviesList | null,
     movieDetails:IMovieDetails | null,
-    pages:number,
+    pages:string,
+    genres:string
 }
 const initialState: IMovieState = {
     moviesList:null,
     movieDetails:null,
-    pages:1
+    pages:'1',
+    genres:''
 }
 
-export const getAllMovies = createAsyncThunk<void, {page:number}>(
+export const getAllMovies = createAsyncThunk<void, {page:string}>(
     'movieSlice/getAllMovies',
     async ({page},{dispatch}) => {
         const {data} = await  movieService.getAll(page);
         dispatch(setMovies({moviesList: data}))
+    }
+)
+export const getAllMoviesWithGenre = createAsyncThunk<void, {page:string,genre:string}>(
+    'movieSlice/getAllMovies',
+    async ({page,genre},{dispatch}) => {
+        const {data} = await  movieService.getALLByGenrePage(page,genre);
+        dispatch(setMovies({moviesList: data}));
     }
 )
 export const getMovieById = createAsyncThunk<void,{id:number}>(
@@ -39,12 +48,15 @@ const movieSlice = createSlice({
         setMovieDetails:(state, action:PayloadAction<{movieDetails: IMovieDetails}>)=>{
             state.movieDetails=action.payload.movieDetails;
         },
-        setPages:(state, action:PayloadAction<{page:number}>)=>{
+        setPages:(state, action:PayloadAction<{page:string}>)=>{
             state.pages = action.payload.page;
+        },
+        setCurrenGenres:(state, action:PayloadAction<{genre:string}>)=>{
+            state.genres = action.payload.genre;
         }
     }
 })
 
 const movieReducer = movieSlice.reducer;
 export default  movieReducer;
-export const{setMovies, setMovieDetails,setPages} = movieSlice.actions
+export const{setMovies, setMovieDetails,setPages,setCurrenGenres} = movieSlice.actions

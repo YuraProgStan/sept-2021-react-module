@@ -1,4 +1,3 @@
 export * from './axios.service';
-export * from './axiosImage.service';
 export * from './movie.service';
 export * from './genre.service';

@@ -7,7 +7,7 @@ import {StarsRating} from "../StarsRating/StarsRating";
 import {urlsImage} from "../../constants";
 
 const MoviesListCard: FC<{ movie: IMovieResults }> = ({movie}) => {
-    const {original_title, popularity, vote_average, poster_path, title, id} = movie;
+    const {original_title, popularity, vote_average, poster_path, title, id,genre_ids} = movie;
 
     return (
         <Link to={`/movies/${id}`} className={css.movie}>
@@ -15,6 +15,7 @@ const MoviesListCard: FC<{ movie: IMovieResults }> = ({movie}) => {
             <div>Title: {original_title}</div>
             <div>Popularity: {popularity}</div>
             <div>Vote_average: {vote_average}</div>
+            <div>Genre_ids: {genre_ids&& genre_ids.map(value=><span key={value}>{value}</span>)}</div>
             <StarsRating vote_average={vote_average}/>
         </Link>
     );
