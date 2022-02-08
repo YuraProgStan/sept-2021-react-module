@@ -26,20 +26,18 @@ const MoviesList: FC = () => {
 
         <div>
             {moviesList &&pages&&
-            <>
-                <Link to={`/movies/page/${+pages - 1}`}>
-                    <button disabled={+pages <= 1}
+            <><div className={css.pages}>
+                <Link className={css.prevnext} to={`/movies/page/${+pages - 1}`}>
+                    <button  disabled={+pages <= 1}
                             onClick={() => dispatch(setPages({page:(+pages - 1).toString()}))}>Prev Page
                     </button>
                 </Link>
-                <Link to={`/movies/page/${+pages + 1}`}>
-                    <button disabled={+pages === moviesList.total_pages}
+                <Link className={css.prevnext} to={`/movies/page/${+pages + 1}`}>
+                    <button  disabled={+pages === moviesList.total_pages}
                             onClick={() => dispatch(setPages({page:(+pages + 1).toString()}))}>Next Page
                     </button>
                 </Link>
-                <div>Page: {moviesList.page}</div>
-                <div>Total pages: {moviesList.total_pages}</div>
-                <div>Total results: {moviesList.total_results}</div>
+            </div>
                 <div className={css.movies}>{moviesList.results.map(movie => <MoviesListCard key={movie.id} movie={movie}/>)}</div>
 
             </>

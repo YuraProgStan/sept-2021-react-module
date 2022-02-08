@@ -22,7 +22,7 @@ const getValue = (e:React.ChangeEvent<HTMLSelectElement>):void => {
 }
     return (
         <div>
-            Form
+            Genres
             <form>
                 <select name = {'genre'} placeholder={'genre'} onChange={getValue}>
                     <option value="0">All</option>

@@ -1,27 +1,15 @@
 import React from 'react';
-import MoviesList from "../../components/MoviesList/MoviesList";
-import {Link, Outlet} from "react-router-dom";
-import {GenresList} from "../../components";
-import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {setPages} from "../../store";
+import MoviesList from '../../components/MoviesList/MoviesList';
+import {GenresList} from '../../components';
 
 const MoviesPage = () => {
     return (
-        <>
+        <div>
 
-
-            <div>
                 <GenresList/>
-            </div>
-            <div>
-                <Outlet/>
-            </div>
-            <div>
-                <MoviesList  />
-            </div>
+                 <MoviesList/>
 
-
-        </>
+        </div>
     );
 };
 

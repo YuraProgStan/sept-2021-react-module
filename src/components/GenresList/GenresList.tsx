@@ -18,8 +18,7 @@ const GenresList:FC = () => {
             {genresState&&
             <>
                <Form genres={genresState.genres} />
-                {/*<Form />*/}
-                {genresState.genres.map(genre=><GenreBadge key={genre.id} genre={genre} />)}
+                {/*{genresState.genres.map(genre=><GenreBadge key={genre.id} genre={genre} />)}*/}
 
             </>}
         </div>

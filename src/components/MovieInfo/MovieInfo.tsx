@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {getMovieById} from "../../store";
 import {PosterPreview} from "../PosterPreview/PosterPreview";
@@ -7,10 +7,16 @@ import {urlsImage} from "../../constants";
 import css from './MovieInfo.module.css';
 import {StarsRating} from "../StarsRating/StarsRating";
 
+
 const MovieInfo: FC = () => {
     const {id} = useParams();
-
     const {movieDetails} = useAppSelector(state => state.movies);
+    let genres;
+    let genreNamesArr;
+    // if (movieDetails){
+    // {genres} = movieDetails;
+    // genreNamesArr= genreNames(genres);
+    // }
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(getMovieById({id: Number(id)}));
@@ -26,6 +32,7 @@ const MovieInfo: FC = () => {
                     <div className={css.description}>
                     <div><h1>{movieDetails.title}</h1></div>
                     <div>{movieDetails.overview}</div>
+                        {/*<div>Genres: {state.map(value => <span key={value}>{value}</span>)}</div>*/}
                         <StarsRating vote_average={movieDetails.vote_average}/>
 
                     </div>
