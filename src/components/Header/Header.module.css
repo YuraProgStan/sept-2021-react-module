@@ -1,39 +1,49 @@
 
-.container{
+.container {
     margin: 0 auto;
     padding: 20px;
-    background-color:#F8F8F8FF ;
+    background-color: #F8F8F8FF;
 }
 
-.wrap{
+.wrap {
     display: flex;
     background-color: #eeeeee;
     border-radius: 20px;
     color: #3e3a56;
 }
-.wrap a{color: #3e3a56;}
-.wrapdarked{
+
+.wrap a {
+    color: #3e3a56;
+}
+
+.wrapdarked {
     display: flex;
     background-color: #324077;
     border-radius: 20px;
     color: white;
 }
-.wrapdarked a{
+
+.wrapdarked a {
     color: #fff;
 }
-.wrapdarked option{
+.wrapdarked a button:hover{
+    color: #d6d8d9;
+}
+.wrapdarked option {
     background-color: #324077;
 }
-.header{
+
+.header {
     width: 15%;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
     background-color: #324077;
     border-radius: 20px 0 0 20px;
-    padding-top:10px;
+    padding-top: 10px;
 }
-.main{
+
+.main {
     width: 85%;
     padding: 15px;
 }
@@ -43,34 +53,38 @@ option:checked {
     color: white;
 
 }
-select{
+
+select {
     font-size: 16px;
     border: none;
-background-color:unset;
-
+    background-color: unset;
     opacity: 1;
     font-weight: bold;
     color: #3e3a56;
 }
-.wrapdarked select{
-    color:#fff;
+
+.wrapdarked select {
+    color: #fff;
 }
 
 
-.header button{
+.header button {
     width: 100%;
     padding: 10px;
     border: none;
-    background-color: rgba(255, 255, 255,0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     color: #fff;
 }
+
 .header a[class="active"] button {
     background-color: rgba(255, 255, 255, 0.1);
 }
-.header button:hover{
+
+.header button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
-.main button{
+
+.main button {
     width: 100px;
     background-color: unset;
     border: none;
@@ -79,30 +93,38 @@ background-color:unset;
     margin-bottom: 10px;
 }
 
-.main button:hover{
+.main button:hover {
     text-decoration: underline;
     background-color: unset;
 }
-.wrapdarked .main button{
+
+.wrapdarked .main button {
     color: #fff;
 }
+
 /*___________________________________________________*/
 @media screen and (max-width: 780px) {
-    .wrap, .wrapdarked{
+    .wrap, .wrapdarked {
         flex-direction: column;
     }
-    .header, .main{
+
+    .header, .main {
         width: 100%;
         border-radius: 20px 20px 0 0;
         padding: 0;
     }
-    .main{
+
+    .main {
         padding-top: 10px;
     }
 }
-@media screen and (max-width: 413px){
-    .container{
+
+@media screen and (max-width: 413px) {
+    .container {
         padding: 0;
     }
-    .main{padding:10px}
+
+    .main {
+        padding: 10px
+    }
 }
