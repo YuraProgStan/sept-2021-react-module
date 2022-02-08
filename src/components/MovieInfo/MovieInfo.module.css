@@ -10,6 +10,7 @@
     width: 100%;
 }
 
+
 @media screen and (max-width: 1400px) {
     .movieinfo img {
         width: 500px;

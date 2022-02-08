@@ -27,20 +27,20 @@ const MoviesList: FC = () => {
 
         <div>
             {moviesList &&pages&&
-            <><div className={css.pages}>
-                <Link className={css.prevnext} to={`/movies/page/${+pages - 1}`}>
-                    <button  disabled={+pages <= 1}
-                            onClick={() => dispatch(setPages({page:(+pages - 1).toString()}))}>Prev Page
-                    </button>
-                </Link>
-                <Link className={css.prevnext} to={`/movies/page/${+pages + 1}`}>
-                    <button  disabled={+pages === moviesList.total_pages}
-                            onClick={() => dispatch(setPages({page:(+pages + 1).toString()}))}>Next Page
-                    </button>
-                </Link>
-            </div>
+            <>
               <div className={css.movies}>{moviesList.results.map(movie => <MoviesListCard key={movie.id} movie={movie}/>)}</div>
-
+                <div className={css.pages}>
+                    <Link className={css.prevnext} to={`/movies/page/${+pages - 1}`}>
+                        <button  disabled={+pages <= 1}
+                                 onClick={() => dispatch(setPages({page:(+pages - 1).toString()}))}>Prev Page
+                        </button>
+                    </Link>
+                    <Link className={css.prevnext} to={`/movies/page/${+pages + 1}`}>
+                        <button  disabled={+pages === moviesList.total_pages}
+                                 onClick={() => dispatch(setPages({page:(+pages + 1).toString()}))}>Next Page
+                        </button>
+                    </Link>
+                </div>
             </>
             }
 

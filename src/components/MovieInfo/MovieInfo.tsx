@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import {useParams} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 
 import {useAppDispatch, useAppSelector} from '../../hooks/redux';
 import {getMovieById} from '../../store';
@@ -12,7 +12,10 @@ import {StarsRating} from '../StarsRating/StarsRating';
 const MovieInfo: FC = () => {
     const {id} = useParams<string>();
     const {movieDetails} = useAppSelector(state => state.movies);
-
+    const navigate = useNavigate();
+    const backNavigate = ()=> {
+        navigate(-1);
+    }
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(getMovieById({id: Number(id)}));
@@ -21,6 +24,7 @@ const MovieInfo: FC = () => {
 
     return (
         <div>
+            <button className={css.back} onClick={backNavigate}>Back</button>
             {movieDetails &&
             <div className={css.movieinfo}>
                 <PosterPreview poster_path={movieDetails.poster_path} title={movieDetails.title}

@@ -57,18 +57,34 @@ background-color:unset;
 }
 
 
-button{
+.header button{
     width: 100%;
     padding: 10px;
     border: none;
     background-color: rgba(255, 255, 255,0.3);
     color: #fff;
 }
-a[class="active"] button {
+.header a[class="active"] button {
     background-color: rgba(255, 255, 255, 0.1);
 }
-a:hover button{
+.header button:hover{
     background-color: rgba(255, 255, 255, 0.1);
+}
+.main button{
+    width: 100px;
+    background-color: unset;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.main button:hover{
+    text-decoration: underline;
+    background-color: unset;
+}
+.wrapdarked .main button{
+    color: #fff;
 }
 /*___________________________________________________*/
 @media screen and (max-width: 780px) {
