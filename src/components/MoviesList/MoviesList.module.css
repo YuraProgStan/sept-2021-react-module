@@ -7,16 +7,23 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(50px, 1fr));
     grid-template-rows: auto;
-    gap: 10px;;
+    gap: 20px;;
 }
 .pages{
     display: flex;
     column-gap: 5px;
 }
 .prevnext button{
-    color:#3e3a56;
+    background-color: unset;
+    color:#9e9ca7;
     font-size: 14px;
+    font-weight: bold;
+}
+.wrapdarked .prevnext button{
+    color: #fff;
 }
 .prevnext:hover button{
-    color: #8aa5d5;
+    color: #2a3356;
+    background-color: unset;
+
 }

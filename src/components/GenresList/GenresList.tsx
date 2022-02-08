@@ -4,6 +4,7 @@ import {getAllGenres} from "../../store";
 import {GenreBadge} from "../GenreBadge/GenreBadge";
 import css from './GenreList.module.css';
 import {Form} from "../Form/Form";
+import {Switcher} from "../Switcher/Switcher";
 
 const GenresList:FC = () => {
     const {genresState} = useAppSelector(state=> state.genre)
@@ -18,8 +19,8 @@ const GenresList:FC = () => {
             {genresState&&
             <>
                <Form genres={genresState.genres} />
+                <Switcher />
                 {/*{genresState.genres.map(genre=><GenreBadge key={genre.id} genre={genre} />)}*/}
-
             </>}
         </div>
     );

@@ -22,10 +22,9 @@ const getValue = (e:React.ChangeEvent<HTMLSelectElement>):void => {
 }
     return (
         <div>
-            Genres
             <form>
                 <select name = {'genre'} placeholder={'genre'} onChange={getValue}>
-                    <option value="0">All</option>
+                    <option value="0">All Genres</option>
                     {genres && genres.map(item => <option  key={item.id} value={item.id}>{item.name}</option>)}
                 </select>
             </form>

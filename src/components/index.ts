@@ -8,3 +8,4 @@ export * from './PosterPreview/PosterPreview';
 export * from './StarsRating/StarsRating';
 export  * from './GenresList/GenresList';
 export * from './Form/Form';
+export * from './Switcher/Switcher';

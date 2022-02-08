@@ -12,15 +12,6 @@ const MoviesListCard: FC<{ movie: IMovieResults }> = ({movie}) => {
     const {genresState} = useAppSelector(state => state.genre);
     const genreNamesArr= useGenreNames(genre_ids);
 
-
-    // let genreNames = [];
-    // if (genresState) {
-    //     for (const genre_idsElement of genre_ids) {
-    //         const index = genresState.genres.findIndex(value => value.id===genre_idsElement);
-    //         const name =genresState.genres[index].name
-    //        genreNames.push(name);
-    //     }
-    // }
     return (
         <Link to={`/movies/${id}`} className={css.movie}>
             <div className={css.images}><PosterPreview poster_path={poster_path} title={title} width={urlsImage.w300}/></div>
