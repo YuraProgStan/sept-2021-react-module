@@ -1,6 +1,7 @@
 import {Link, Route, Routes} from 'react-router-dom';
 import Home from './pages/home/Home';
 import Pokemons from './pages/pokemons/Pokemons';
+import Pokemon from "./pages/pokemon/Pokemon";
 
 const App = () => {
     return (
@@ -15,7 +16,9 @@ const App = () => {
             </ul>
             <Routes>
                 <Route index element={<Home/>}/>
-                <Route path={'/pokemons-page'} element={<Pokemons/>}/>
+                <Route path={'/pokemons-page'} element={<Pokemons/>}>
+                <Route path={'pokemon-details'} element={<Pokemon/>}/>
+                </Route>
             </Routes>
 
         </div>

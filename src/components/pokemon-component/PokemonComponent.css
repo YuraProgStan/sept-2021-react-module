@@ -1,0 +1,6 @@
+.pokemon-card {
+    min-height: 100px;
+    background: silver;
+    width: 150px;
+    margin: 3px;
+}
