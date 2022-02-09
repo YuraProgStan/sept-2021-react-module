@@ -16,7 +16,7 @@ const MoviesListCard: FC<{ movie: IMovieResults }> = ({movie}) => {
         <Link to={`/movies/${id}`} className={css.movie}>
             <div className={css.images}><PosterPreview poster_path={poster_path} title={title} width={urlsImage.w300}/></div>
             <div><h3>{original_title}</h3></div>
-            <div>Genres: {genre_ids && genreNamesArr.map(value => <span key={value}>{value}</span>)}</div>
+            <div><p>Genres: {genre_ids && genreNamesArr.map(value => <span key={value}>{value}</span>)}</p></div>
             <StarsRating vote_average={vote_average}/>
         </Link>
     );
