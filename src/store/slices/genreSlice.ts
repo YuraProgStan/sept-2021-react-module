@@ -3,7 +3,7 @@ import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {IGenres} from '../../interfaces';
 import {genreService} from '../../services';
 
-export interface IGenreState {
+interface IGenreState {
     genresState: IGenres| null
 }
 

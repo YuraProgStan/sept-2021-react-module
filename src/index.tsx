@@ -5,7 +5,7 @@ import App from './App';
 import {setupStore} from "./store";
 import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
-import css from './index.module.css'
+import './index.css'
 
 const store = setupStore()
 ReactDOM.render(
