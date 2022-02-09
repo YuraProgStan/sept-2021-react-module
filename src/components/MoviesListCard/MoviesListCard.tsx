@@ -6,11 +6,10 @@ import {Link} from 'react-router-dom';
 
 import {StarsRating} from '../StarsRating/StarsRating';
 import {urlsImage} from '../../constants';
-import {useAppSelector, useGenreNames} from '../../hooks/redux';
+import {useGenreNames} from '../../hooks/redux';
 
 const MoviesListCard: FC<{ movie: IMovieResults }> = ({movie}) => {
-    const {original_title, popularity, vote_average, poster_path, title, id, genre_ids} = movie;
-    const {genresState} = useAppSelector(state => state.genre);
+    const {original_title, vote_average, poster_path, title, id, genre_ids} = movie;
     const genreNamesArr= useGenreNames(genre_ids);
 
     return (
