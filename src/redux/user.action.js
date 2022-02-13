@@ -1,0 +1,3 @@
+export const LOAD_USERS = 'LOAD_USERS';
+export const START_USERS_LOADING = 'START_USER_LOADING';
+export const END_USERS_LOADING = 'END_USER_LOADING';
