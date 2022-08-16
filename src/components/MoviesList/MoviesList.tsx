@@ -10,7 +10,7 @@ import css from './MoviesList.module.css'
 const MoviesList: FC = () => {
     const {moviesList,pages, genres} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
-
+console.log('moviesList', moviesList);
     useEffect(() => {
         if (pages) {
             if (genres) {
